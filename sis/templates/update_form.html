@@ -1,0 +1,53 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+<div class="container">
+  {{student}}
+  <h2>Vertical (basic) form</h2>
+  <form action="{% url 'update' id=0%}" method="post">{% csrf_token %}
+    <div class="form-group">
+      <label for="email">name:</label>
+      <input type="text" class="form-control" id="email" value={{student.name}}  name="name">
+    </div>
+    <div class="form-group">
+      <label for="pwd1">age:</label>
+      <input type="number" class="form-control" id="pwd1" value={{student.age}}  name="age">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd2">qualification:</label>
+      <input type="text" class="form-control" id="pwd2" value={{student.qualification}}  name="qualification">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd3">mail id:</label>
+      <input type="email" class="form-control" id="pwd3" value={{student.mail_id}}  name="mail">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd4">duration:</label>
+      <input type="number" class="form-control" id="pwd4" value={{student.duration}}  name="du">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd5">joining date:</label>
+      <input type="text" class="form-control" id="pwd5" value={{student.joining_date|date:"Y-m-d"}}  name="join">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd6">paid amount:</label>
+      <input type="number" class="form-control" id="pwd6" value={{student.paid_amount}}  name="paid">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd7">balance:</label>
+      <input type="number" class="form-control" id="pwd7" value={{student.balance_amount}}  name="balance">
+    </div>
+       <input type="hidden" class="form-control" id="pwd" value={{student.id}} name="id">
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+{% endblock %}
+

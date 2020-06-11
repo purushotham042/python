@@ -1,0 +1,51 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+<div class="container">
+  <div class="row"
+       <div class="col-md-2">
+         <div class="col-md-8">
+             <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Qualification</th>
+        <th>Mail_Id</th>
+        <th>Duration</th>
+        <th>Joining_Date</th>
+        <th>Paid_Amount</th>
+        <th>Balance</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Addphone</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+    {{students}}
+    {%  for stu in students%}
+      <tr>
+        <td>{{stu.name}}</td>
+        <td>{{stu.age}}</td>
+        <td>{{stu.qualification}}</td>
+        <td>{{stu.mail_id}}</td>
+        <td>{{stu.duration}}</td>
+        <td>{{stu.joining_date}}</td>
+        <td>{{stu.paid_amount}}</td>
+        <td>{{stu.balance_amount}}</td>
+        <td><a href = "{% url 'delete' id=stu.id %}"><button type="button" class="btn btn-primary">Delete</button></a></td>
+        <td><a href = "{% url 'update' id=stu.id %}"><button type="button" class="btn btn-primary">Update</button></a></td>
+          <td><a href = "{% url 'addphone' id=stu.id %}"><button type="button" class="btn btn-primary">Addphone</button></a></td>
+          <td><a href = "{% url 'usercourse' id=stu.id %}"><button type="button" class="btn btn-primary">Usercourse</button></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+         </div>
+       </div>
+       </div>
+</div>
+{% endblock %}

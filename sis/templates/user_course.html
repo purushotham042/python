@@ -1,0 +1,29 @@
+{% extends 'index.html'%}
+
+{% block content %}
+<div class="container">
+    <h2>{{student.name}}</h2>
+    <form method="post" action="{%url 'usercourse' id=student.id %}">{% csrf_token%}
+         <select name="course">
+            <option selected="selected" disabled>Objects on page </option>
+            {% for cr in courses %}
+
+             <option value={{cr.id}}>{{cr.courses}}</option>
+            {% endfor %}
+
+         </select>
+
+
+         <input type="submit" value="select">
+    </form><br><br>
+        {{stu_courses}}
+
+    <br><br>
+        <ul>
+            {%for sc in stu_courses %}
+            <a href="{% url 'deletecourse' userid=student.id courseid=sc.id %}"><li>{{sc.courses}}</li></a>
+            {% endfor %}
+        </ul>
+</div>
+
+{% endblock %}

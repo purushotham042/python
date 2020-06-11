@@ -1,0 +1,30 @@
+{% extends 'index.html'%}
+{% block content %}
+
+<div class="container">
+  <h2>Form control: AddCources </h2>
+
+  <form method="post" action="{% url 'addcourse' %}">{% csrf_token %}
+    <div class="form-group">
+      <label for="usr">course names:</label>
+      <input type="text" class="form-control" id="usr" name="course">
+    </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+     <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for cr in courses %}
+      <tr>
+        <td>{{cr.courses}}</td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+{% endblock %}
